@@ -15,8 +15,8 @@ class Monster
   attr_reader :name, :level, :bc, :prize
   
   def to_s
-    "Nombre :"+@name+"\nNivel :"+@level.to_s+"\nMal rollo :"+
-      @bc.to_s+"\nBuen rollo:"+@prize.to_s 
+    "Nombre : "+@name+"\nNivel : "+@level.to_s+"\nMal rollo : "+
+      @bc.to_s+"\nBuen rollo: "+@prize.to_s 
   end
 end
 

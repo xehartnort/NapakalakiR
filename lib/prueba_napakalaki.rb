@@ -129,32 +129,33 @@ if __FILE__ == $0
     p = Prize.new(1,1)
     monstruos << Monster.new("Bicefalo", 20, bc, p)
   
-  puts "Nivel de combate superior a 10"
+  puts "\nNivel de combate superior a 10\n"
   monstruos.each{ |x|
-    if 
-        
+    if x.level > 10
+      puts x.to_s
     end
-    
   }
-  puts "Mal rollo sólo pérdida niveles"
+  puts "\nMal rollo sólo pérdida niveles\n"
   monstruos.each{ |x|
-    if 
-        
+    if x.bc.specificHiddenTreasures.empty? &&
+        x.bc.specificVisibleTreasures.empty? &&
+        (( x.bc.nHiddenTreasures==10 && x.bc.nVisibleTreasures==10 ) ||
+          x.bc.nHiddenTreasures==0 && x.bc.nVisibleTreasures==0)
+      puts x.to_s
     end
-    
   }
-  puts "Su buen rollo indique una ganancia de niveles superior a 1"
+  puts "\nSu buen rollo indique una ganancia de niveles superior a 1\n"
   monstruos.each{ |x|
-    if 
-        
-    end
-    
+    if x.prize.level > 1
+      puts x.to_s
+    end 
   }
-  puts "Su mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles\n" +
-"y/o ocultos"
+  puts "\nSu mal rollo suponga la pérdida de un determinado tipo de tesoros ya sea visibles\n" +
+"y/o ocultos\n"
   monstruos.each{ |x|
-    if 
-        
+    if !( x.bc.specificHiddenTreasures.empty? &&
+         x.bc.specificVisibleTreasures.empty?)
+      puts x.to_s
     end
     
   }
