@@ -7,7 +7,7 @@ require_relative 'treasure_kind.rb'
 require_relative 'monster.rb'
 require_relative 'prize.rb'
 
-include EX2
+#include EX2
 
 module EX1
   
@@ -15,8 +15,7 @@ module EX1
   
   class ExamenViernes18
     def self.principal(monster)
-      obj= Statistics.new
-      obj.compute(monster)
+      EX2::Statistics.new.compute(monster)
     end
   end
 
