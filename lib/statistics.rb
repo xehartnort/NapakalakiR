@@ -1,4 +1,5 @@
 #encoding: utf-8
+# To change this template file, choose Tools | Templates
 # and open the template in the editor.
 module EX2
   
@@ -6,19 +7,20 @@ module EX2
   
   def compute(marray)
     nivelmax=0
-    media_tesoros=0
+    @media_tesoros=0
     #Calcular el nombre del monstruo con el nivel máximo
     # Calcula la media de los tesoros que proporciona cada mosntruo
     marray.each { |i|
       if i.level > nivelmax
         nivelmax= i.level
-        nombre_nivel_max = i.name
+        @nombre_nivel_max = i.name
       end
-      media_tesoros += i.prize.treasures
+      @media_tesoros += i.prize.treasures
     
     }
-    media_tesoros = media_tesoros / marray.length 
-    
+    @media_tesoros /= marray.length 
+    puts @nombre_nivel_max
+    puts @media_tesoros.to_s
     marray.each { |i|
         #Monstruos que quitan tesoros ocultos no específicos
       if i.bc.nHiddenTreasures != 0 
