@@ -10,7 +10,7 @@ class Prize
   end
   attr_reader :treasures, :level
   def to_s
-    "Tesoros : "+@treasures.to_s+"\n Niveles : "+@level.to_s
+    "Tesoros : "+@treasures.to_s+"\n Niveles : "+@level.to_s+"\n"
   end
   
 end

@@ -47,7 +47,7 @@ class BadConsequence
                   "Descripcion: "+@text+"\n"+
                   "Mal rollo quita tesoros especificos\n Ocultos: "+
                   @specificHiddenTreasures.to_s + "\n Visibles: "+
-                  @specificVisibleTreasures.to_s
+                  @specificVisibleTreasures.to_s+"\n"
       end
     end
   end
@@ -56,7 +56,7 @@ end
 if __FILE__ == $0
   puts BadConsequence.newLevelSpecificTreasures("Especifico", 3, [TreasureKind::ONEHAND], [TreasureKind::ONEHAND]).to_s
   puts BadConsequence.newLevelNumberOfTreasures("Numero",3,3,3).to_s,"\n"
-  puts  BadConsequence.newDead("Te mueres").to_s
+  puts  BadConsequence.newDeath("Te mueres").to_s
 end
 
 
