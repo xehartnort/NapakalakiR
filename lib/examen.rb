@@ -7,22 +7,19 @@ require_relative 'treasure_kind.rb'
 require_relative 'monster.rb'
 require_relative 'prize.rb'
 
-include EX2
-
 module EX1
-  
-  
   
   class ExamenViernes18
     def self.principal(monster)
-      obj= Statistics.new
+      obj= EX2::Statistics.new
       obj.compute(monster)
     end
   end
 
 
 if __FILE__ == $0
-  monstruos = Array.new
+    puts "hola"
+    monstruos = Array.new
     #3 byakhees de bonanza
     bc = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible"+ 
     "y otra oculta", 0,[TreasureKind::ARMOR], [TreasureKind::ARMOR])
