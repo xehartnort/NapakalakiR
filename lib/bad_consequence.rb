@@ -1,10 +1,19 @@
 #encoding: utf-8
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+require_relative 'prize.rb'
+require_relative 'player.rb'
+require_relative 'monster.rb'
+require_relative 'treasure.rb'
+require_relative 'card_dealer.rb'
+require_relative 'dice.rb'
 require_relative 'treasure_kind.rb'
 
 class BadConsequence
+  @@MAXTREASURES=10
+  def self.MAXtreasures
+    @@MAXTREASURES
+  end
+  
+  
   def initialize(text, lvl, nVisible, nHidden, specificVisible, specificHidden)
     @text=text
     @levels=lvl
@@ -23,15 +32,35 @@ class BadConsequence
   end
   
   def self.newDeath(text)
-    new(text,10,10,10,Array.new,Array.new)
+    new(text,Player.MAXlevel,@@MAXTREASURES,@@MAXTREASURES,Array.new,Array.new)
   end
   
   attr_reader :text, :levels, :nHiddenTreasures, :nVisibleTreasures, 
       :specificHiddenTreasures, :specificVisibleTreasures
   private_class_method :new
   
+  def isEmpty
+    @nHiddenTreasures+@nVisibleTreasures==0 &&
+      @specificHiddenTreasures.empty? &&
+      @specificVisibleTreasures.empty?
+  end
+  
+  def substractVisibleTreasure t
+    
+  end
+  
+  def substractHiddenTreasure t
+    
+  end
+  
+  def adjustToFitTreasureLists v, h
+    
+  end
+  
   def to_s
-    if @levels==10 && @nHiddenTreasures==10 && @nVisibleTreasures==10
+    if @levels==Player.MAXlevel && 
+        @nHiddenTreasures==@@MAXTREASURES &&
+        @nVisibleTreasures==@@MAXTREASURES
       "Nivel: "+@levels.to_s+"\n"+
                 "Descripcion: "+@text+"\n"+
                 "Mal rollo muerte\n"
@@ -51,12 +80,6 @@ class BadConsequence
       end
     end
   end
-end
-#main local
-if __FILE__ == $0
-  puts BadConsequence.newLevelSpecificTreasures("Especifico", 3, [TreasureKind::ONEHAND], [TreasureKind::ONEHAND]).to_s
-  puts BadConsequence.newLevelNumberOfTreasures("Numero",3,3,3).to_s,"\n"
-  puts  BadConsequence.newDeath("Te mueres").to_s
 end
 
 

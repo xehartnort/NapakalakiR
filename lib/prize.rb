@@ -1,16 +1,12 @@
 #encoding: utf-8
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-
 class Prize
-  def initialize(treasures, level)
+  def initialize(treasures, levels)
     @treasures=treasures
-    @level=level
+    @levels=levels
   end
-  attr_reader :treasures, :level
+  attr_reader :treasures, :levels
   def to_s
-    "Tesoros : "+@treasures.to_s+"\n Niveles : "+@level.to_s+"\n"
+    "Tesoros : "+@treasures.to_s+"\n Niveles : "+@levels.to_s+"\n"
   end
   
 end
