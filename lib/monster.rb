@@ -13,6 +13,7 @@ class Monster
     @bc=bc
     @prize=prize
   end
+  
   attr_reader :name, :level, :bc, :prize
   
   def getLevelsGained

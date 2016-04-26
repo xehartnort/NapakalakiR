@@ -18,11 +18,25 @@ class CardDealer
   public
   
     def nextTreasure
-      
+      if @unusedTreasures.empty?
+        @usedTreasures.shuffle!
+        @unusedTreasures = @usedTreasures.clone # copia a un nivel
+        @usedTreasures.clear
+      end
+        treasure = @unusedTreasures.pop
+        @usedTreasures << treasure
+        treasure #return
     end
     
     def nextMonster
-      
+      if @unusedMonsters.empty?
+        @usedMonsters.shuffle!
+        @unusedMonsters = @usedMonsters.clone # copia a un nivel
+        @usedMonsters.clear
+      end
+        treasure = @unusedMonsters.pop
+        @usedMonsters << treasure
+        treasure #return
     end
     
     def giveTreasureBack t 
@@ -42,7 +56,7 @@ class CardDealer
       shuffleTreasures
     end
     
-  #private
+  private
   
     def initTreasureCardDeck
       @usedTreasures = Array.new
