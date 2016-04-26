@@ -123,10 +123,12 @@ class Player
     end
     
     def discardAllTreasures
-      @visibleTreasures.each do |t|
+      clon1 = @visibleTreasures.clone
+      clon2 = @hiddenTreasures.clone
+      clon1.each do |t|
         discardVisibleTreasure(t)
       end
-      @hiddenTreasures.each do |t|
+      clon2.each do |t|
         discardHiddenTreasure(t)
       end
     end

@@ -159,7 +159,7 @@ class CardDealer
       @unusedMonsters << Monster.new("La que redacta en las tinieblas", 2, bc, p)
 
       #Los hondos
-      bc = BadConsequence.newDeath("Estos @unusedMonsters resultan bastante superficiales " +
+      bc = BadConsequence.newDeath("Estos monstruos resultan bastante superficiales " +
       "aburren mortalmente. Estas muerto.")
       p = Prize.new(2,1)
       @unusedMonsters << Monster.new("Los hondos", 8, bc, p)
