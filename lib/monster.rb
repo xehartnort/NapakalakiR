@@ -7,33 +7,33 @@ require_relative 'treasure_kind.rb'
 require_relative 'bad_consequence.rb'
 
 module NapakalakiGame
-class Monster
-  def initialize(name,lvl,bc,prize)
-    @name=name
-    @level=lvl
-    @bc=bc
-    @prize=prize
+  class Monster
+    def initialize(name,lvl,bc,prize)
+      @name=name
+      @level=lvl
+      @bc=bc
+      @prize=prize
+    end
+
+    attr_reader :name, :level, :bc, :prize
+
+    def getLevelsGained
+      prize.levels
+    end
+
+    def getTreasuresGained
+      prize.treasures
+    end
+
+    def getCombatLevel
+      @level
+    end
+
+    def to_s
+      "Nombre : "+@name+
+        "\nNivel de combate: "+@level.to_s+
+        "\nBuen rollo: "+@prize.to_s+
+        "\nMal rollo : "+@bc.to_s+"\n"
+    end
   end
-  
-  attr_reader :name, :level, :bc, :prize
-  
-  def getLevelsGained
-    prize.levels
-  end
-  
-  def getTreasuresGained
-    prize.treasures
-  end
-  
-  def getCombatLevel
-    @level
-  end
-  
-  def to_s
-    "Nombre : "+@name+
-      "\nNivel de combate: "+@level.to_s+
-      "\nBuen rollo: "+@prize.to_s+
-      "\nMal rollo : "+@bc.to_s+"\n"
-  end
-end
 end
