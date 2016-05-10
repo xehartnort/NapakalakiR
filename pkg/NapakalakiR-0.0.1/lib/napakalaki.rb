@@ -110,5 +110,5 @@ module NapakalakiGame
       turno
     end
     
-end
+  end
 end
