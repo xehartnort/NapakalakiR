@@ -22,6 +22,14 @@ module NapakalakiGame
         @specificVisibleTreasures.empty?
     end
     
+    def getSpecificVisibleTreasures
+      @specificVisibleTreasures
+    end
+    
+    def getSpecificHiddenTreasures
+      @specificHiddenTreasures
+    end
+    
     def substractVisibleTreasure t #Treasure t
         if @specificVisibleTreasures.count(t.type)==1 #Si hay solo uno
           @specificVisibleTreasures.delete(t.type)

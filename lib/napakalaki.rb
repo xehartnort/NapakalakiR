@@ -80,12 +80,7 @@ module NapakalakiGame
       end
 
       def endOfGame result
-        if result == CombatResult::WINGAME
-          fin = true
-        else
-          fin = false
-        end
-        fin
+        result == CombatResult::WINGAME
       end
 
     private

@@ -169,11 +169,7 @@ module NapakalakiGame
       end
     
       def shouldConvert
-        if Dice.instance.nextNumber < 6
-          return true
-        else
-          return false
-        end
+        Dice.instance.nextNumber == 6
       end
     
       def getCombatLevel

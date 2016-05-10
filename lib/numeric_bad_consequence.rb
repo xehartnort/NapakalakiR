@@ -17,6 +17,14 @@ module NapakalakiGame
       @nHiddenTreasures = nHiddenTreasures
     end
     
+    def getNVisibleTreasures()
+      @nVisibleTreasures
+    end
+    
+    def getNHiddenTreasures()
+      @nHiddenTreasures
+    end    
+    
     def isEmpty
       (@nHiddenTreasures+@nVisibleTreasures)==0
     end

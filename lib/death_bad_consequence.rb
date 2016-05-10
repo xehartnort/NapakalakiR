@@ -12,7 +12,8 @@ module NapakalakiGame
     public_class_method :new
 
     def initialize(text)
-      super(text, 0, 10, 10)
+      super(text, 0, BadConsequence.MAXtreasures, 
+        BadConsequence.MAXtreasures)
     end
     
     def to_s
