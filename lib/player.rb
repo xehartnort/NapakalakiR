@@ -27,14 +27,14 @@ module NapakalakiGame
 
     public
 
-      def initialize name
-        @dealer = CardDealer.instance
+      def initialize name, l=1, d=true, v=Array.new, h=Array.new, p=NumericBadConsequence.new("Vacio", 0, 0, 0)
+        @dealer=CardDealer.instance
         @name=name
-        @level=1
-        @hiddenTreasures=Array.new
-        @visibleTreasures=Array.new
-        @pendingBadConsequence = BadConsequence.newLevelNumberOfTreasures("Vacio", 0, 0, 0)
-        @dead=true
+        @level=l
+        @dead=d
+        @hiddenTreasures=h
+        @visibleTreasures=v
+        @pendingBadConsequence = p
       end
 
       def getName
@@ -59,7 +59,7 @@ module NapakalakiGame
 
       def combat m # return CombatResult
         myLevel = getCombatLevel
-        monsterLevel = m.getCombatLevel
+        monsterLevel = getOponentLevel(m)
         if myLevel > monsterLevel
           applyPrize(m)
           if @level >= @@MAXLEVEL
@@ -69,7 +69,11 @@ module NapakalakiGame
           end
         else
           applyBadConsequence(m)
-          combatResult = CombatResult::LOSE
+          if shouldConvert
+            combatResult = CombatResult::LOSEANDCONVERT
+          else
+            combatResult = CombatResult::LOSE
+          end  
         end
         combatResult
       end
@@ -157,19 +161,33 @@ module NapakalakiGame
         end
         text += textoHiddenTreasures + "}" + textoVisibleTreasures + "}" #return
       end 
-
-    private
-
-      def bringToLife
-        @dead = false
+    
+    protected
+    
+      def getOponentLevel m
+        m.getCombatLevel
       end
-
+    
+      def shouldConvert
+        if Dice.instance.nextNumber < 6
+          return true
+        else
+          return false
+        end
+      end
+    
       def getCombatLevel
         lvl=@level
         @visibleTreasures.each do |i|
           lvl += + i.bonus
         end
         lvl
+      end
+      
+    private
+
+      def bringToLife
+        @dead = false
       end
 
       def incrementLevels l
