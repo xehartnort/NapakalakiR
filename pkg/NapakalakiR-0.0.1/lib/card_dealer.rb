@@ -45,11 +45,6 @@ module NapakalakiGame
       end
 
       def nextCultist
-#        if @unusedCultists.empty?
-#          @usedCultists.shuffle!
-#          @unusedCultists = @usedCultists.clone # copia a un nivel
-#          @usedCultists.clear
-#        end
           cultist = @unusedCultists.pop
           cultist #return
       end
@@ -274,7 +269,7 @@ module NapakalakiGame
         # Felpuggoth
         badConsequence = SpecificBadConsequence.new("Pierdes tu casco y tu armadura visible. " +
                       "\n\tPierdes tus manos ocultas", 0,
-                      [TreasureKind::ARMOR, TreasureKind::HELMET], [TreasureKind::BOTHHANDS])
+                      [TreasureKind::ARMOR, TreasureKind::HELMET], [TreasureKind::BOTHHANDS, TreasureKind::ONEHAND, TreasureKind::ONEHAND])
         prize = Prize.new(1,1)
         @unusedMonsters<< Monster.new("Felpuggoth", 2, badConsequence, prize, 5)
 
